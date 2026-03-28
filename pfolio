@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+        <div class="logo">My Portfolio</div>
+        <ul>
+            <li><a href="#about">About Me</a></li
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about" class="hero">
+            <h1>About Me</h1>
+            <p>Hello! I'm a passionate developer with experience in web development, data science, and machine learning. I enjoy creating innovative solutions and learning new technologies.</p>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                <h3>Project One</h3>
+                <p>A web application that allows users to track their fitness goals and progress.</p>
+                <a href="#"> view on github</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Portfolio. Built with HTML & CSS.</p>
+    </footer>
+</body>
+</html>
