@@ -147,21 +147,27 @@ h2{
 }
 
 /* Project grid: CSS Grid layout for responsive project cards */
-.project-grid{
-   background: white;        /* The white background is now here */
-    padding: 30px;            /* Internal spacing for the whole box */
-    border-radius: 15px;      /* Rounded corners for the whole box */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* The shadow is now here */
-    max-width: 900px;         /* Keeps it from getting too wide */
-    margin: 0 auto;           /* Centers the whole box on the page */
+.project-grid {
+    background: white;
+    padding: 0; /* Change 30px to 0 so internal items can touch the edges */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden; /* This clips the background image to the 15px rounded corners */
 }
 
 /* Project item: White background, padding, border radius, shadow, hover transform transition */
-.project-item{
-    padding: 2rem 0;          /* Space between projects */
-    border-bottom: 1px solid #eee; /* Light line between projects */
-    transition: background 0.3s, transform 0.3s;   /* Smoother feel for background and transform */
-    transform: translateX(0); /* Base position */
+.project-item{         
+    border-bottom: none; /* remove divider for bg items */
+    position: relative;
+    overflow: hidden; /* IMPORTANT */
+}
+
+.project-content{
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 /* Remove the line from the very last project so it stays clean */
@@ -170,11 +176,7 @@ h2{
 }
 
 /* Project item hover: Lifts the card on hover */
-.project-item:hover{
-    background: #fcfcfc; /* Very subtle grey highlight when hovering */
-    transform: translateX(10px);  /* Smooth slide to the right */
-    border-radius: 8px;
-}
+
 
 /* Project item heading (h3): Bottom margin, blue color */
 .project-item h3{
@@ -182,11 +184,53 @@ h2{
     color: #123458;
 }
 
+/* UNIQUE IMAGES */
+.item-bg-1 { background-image: url("asset/inetbg.png"); }
+.item-bg-2 { background-image: url("asset/drbg.png"); }
+.item-bg-3 { background-image: url("asset/databg.webp"); }
+
+.item-bg-1, .item-bg-2, .item-bg-3 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    padding: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Subtle divider */
+}
+
+.item-bg-1 h3, .item-bg-2 h3, .item-bg-3 h3 {
+    color: #ffffff !important; 
+    margin-top: 0;
+}
+
+/* The dark overlay for ALL of them */
+.item-bg-1::before, .item-bg-2::before, .item-bg-3::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65); /* Darkens the image so text is readable */
+    z-index: 1;
+}
+
+.item-bg-1 *, .item-bg-2 *, .item-bg-3 * {
+    position: relative;
+    z-index: 2;
+}
+
+.item-bg-1 a{
+    color: #fff;
+}
+
+.item-bg-1 a:hover{
+    color: #ddd;
+}
+
 /* Project item link: Inline block, top margin, color, font weight, no underline, hover effect */
 .project-item a{
     display: inline-block;
     margin-top: 1rem;
-    color: #123458;
+    color: #0c0c0c;
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s;
@@ -194,7 +238,7 @@ h2{
 
 /* Project item link hover: Changes color on hover */
 .project-item a:hover{
-    color: #333;
+    color: #ddd;
 }
 
 /* Footer: Center alignment, padding, dark background, white text, top margin */
